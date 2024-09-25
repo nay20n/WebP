@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>객체 생성</title>
+        <script>
+            // 객체 Properties 생성
+            let Properties1 = new Object();           
+            Properties1.nStudent = 0;
+            Properties1.korName = "웹프로그래밍";
+            Properties1.engName = "Web Programming"; 
+            Properties1.classCode = "V024003";
+            Properties1.register = register;
+            Properties1.unregister = unregister;
+            Properties1.getStudentCount = getStudentCount;
+            function register() {
+                this.nStudent++;
+            }
+            function unregister() {
+                this.nStudent--;
+            }
+            function getStudentCount() {
+                return this.nStudent;
+            }
+        </script>
+        <script>
+            let Properties2 = {
+                korName : "클라우드컴퓨팅",
+                engName : "Cloud Programming",
+                nStudent : 0,
+                classCode : "V024003",
+
+                register : function () {this.nStudent++;},
+                unregister : function () {this.nStudent--;},
+                getStudentCount : function () {return this.nStudent;}
+            };        
+        </script>
+        <script>
+
+            //프로토타입 Student 작성
+            function Properties3 (korName, engName, nStudent, classCode) {
+                //프로퍼티 생성
+                this.korName = "프로그래밍언어론";
+                this.engName = "Programming Langauges";
+                this.nStudent = 0;
+                this.classCode = "V024003";
+
+                //함수 정의
+                this.register = function() {this.nStudent++;}
+                this.unregister = function() {this.nStudent--;}
+                this.getStudentCount = function() {return this.nStudent;}
+            }
+
+            let p3 = new Properties3(); //인스턴스 생성
+        </script>
+    </head>
+    <body>
+        <script>
+            //직접객체만들기
+            document.write("<h3>1. 직접 객체 만들기</h3>");
+            document.write("교과목 이름 = " + Properties1.korName + "<br>");
+            document.write("교과목 영문 이름 = " + Properties1.engName + "<br>");
+            document.write("등록 학생 수 = " + Properties1.getStudentCount() + "<br>");
+            Properties1.register();
+            document.write("after, register 등록 학생 수 = " + Properties1.getStudentCount() + "<hr>");
+
+            //리터럴 표기법으로 객체 만들기
+            document.write("<h3> 2. 리터럴 표기 </h3>");
+            document.write("교과목 이름 = " + Properties2.korName + "<br>");
+            document.write("교과목 영문 이름 = " + Properties2.engName + "<br>");
+            document.write("등록 학생 수 = " + Properties2.getStudentCount() + "<br>");
+            Properties2.register();
+            document.write("after, register 학생 수 = " + Properties2.getStudentCount() + "<hr>");
+            
+            //프로토타입의 개념과 사용자 객체 만들기
+            document.write("<h3> 3. Prototype </h3>");
+            document.write("교과목 이름 = " + p3.korName + "<br>");
+            document.write("교과목 영문 이름 = " + p3.engName + "<br>");
+            document.write("등록 학생 수 = " + p3.getStudentCount() + "<br>");
+            p3.register();
+            document.write("after, register 학생 수 = " + p3.getStudentCount() + "<hr>");
+        </script>
+    </body>
+</html>
