@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제 8-9</title>
+    <script>
+        function createLi(){
+            let newLi = document.createElement("li");
+            newLi.innerHTML = prompt("라면을 끓이는 순서를 입력하라");
+            newLi.style.backgroundColor = "yellowgreen";
+
+            let ol = document.getElementById("parent");
+            ol.appendChild(newLi);
+        }
+    </script>
+</head>
+<body>
+    <h3>라면을 끓이는 순서</h3><hr>
+    <ol type="A" style="background-color: yellowgreen;" id = "parent" onclick="createLi()">
+        <li>물을 끓인다.</li> 
+    </ol>
+</body>
+</html>
