@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제 9-10</title>
+    <style>
+        input[type="text"] {
+            width: 330px; 
+        }
+        input[type="button"] {
+            width: 60px; 
+            height: 20px; 
+            margin-left: 10px;  
+            margin-right: 10px; 
+        }
+    </style>
+    <script>
+
+        let exp; 
+        window.onload = function() {
+            exp = document.getElementById("exp"); 
+        }
+        function calculate(){
+            let res;
+            res = eval(exp.value);
+            exp.value = res;
+        }
+        function scan(e){
+            if(exp.value == 0)
+                exp.value = e.value;
+            else
+                exp.value += e.value;
+        }
+        function backspace(){
+            exp.value = exp.value.slice(0,-1);
+            if(exp.value==""){
+                exp.value = 0;
+            }
+        }
+        function reset(){
+            exp.value = "0";
+        }
+    </script>
+</head>
+<body>
+    <h3>계산기 만들기</h3><hr>
+
+    <form>
+        <input type="text" id="exp" value="0"><br>
+
+        <input type="button" id="back" value="back" onclick="backspace()">
+        <input type="button" id="CE" value="CE" onclick="reset()">
+        <input type="button" id="C" value="C" onclick="reset()">
+        <input type="button" id="=" value="=" onclick="calculate()">
+        <br>
+
+        <input type="button" id="7" value="7" onclick="scan(this)">
+        <input type="button" id="8" value="8" onclick="scan(this)">
+        <input type="button" id="9" value="9" onclick="scan(this)">
+        <input type="button" id="/" value="/" onclick="scan(this)">
+        <br>
+
+        <input type="button" id="4" value="4" onclick="scan(this)">
+        <input type="button" id="5" value="5" onclick="scan(this)">
+        <input type="button" id="6" value="6" onclick="scan(this)">
+        <input type="button" id="*" value="*" onclick="scan(this)">
+        <br>
+
+        <input type="button" id="1" value="1" onclick="scan(this)">
+        <input type="button" id="2" value="2" onclick="scan(this)">
+        <input type="button" id="3" value="3" onclick="scan(this)">
+        <input type="button" id="-" value="-" onclick="scan(this)">
+        <br>
+
+        <input type="button" id="0" value="0" onclick="scan(this)">
+        <input type="button" id="+" value="+" onclick="scan(this)">
+        <input type="button" id="NONE" value="NONE">
+        <input type="button" id="NONE" value="NONE">
+        <br>
+
+    </form>
+</body>
+</html>
