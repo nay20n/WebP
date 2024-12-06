@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function storage(){
+            let name = document.getElementById("name").value;
+            let num = document.getElementById("num").value;
+            sessionStorage.setItem(name,num);
+        }
+    </script>
+</head>
+<body>
+    <h3>이름과 학번 입력</h3><hr>
+    이름<input type="text" id="name"><br>
+    학번<input type="text" id="num">
+    <button id="storage" onclick="storage()">스토리지에 저장</button><br>
+
+    <a href="prac12-1-(2).html">이름으로 학번 검색 페이지로</a>
+</body>
+</html>

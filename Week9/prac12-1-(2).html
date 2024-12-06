@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function search(){
+            let Sname = document.getElementById("Sname").value;
+            let Snum = document.getElementById("Snum");
+            let gItem = sessionStorage.getItem(Sname); 
+
+            if(gItem){
+                Snum.value = gItem; //찾은 학번을 input값으로 설정
+            }
+            else{
+                Snum.value = "학번이 없습니다.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>이름으로 학번 검색</h3><hr>
+    <label>검색할 이름</label><input type="text" id="Sname"><br>
+    <label>검색된 학번</label><input type="text" id="Snum" onclick="search()">
+    <button onclick="search()">스토리지에서 검색</button><br>
+    <a href="prac12-1.html" >이름과 학번 저장 페이지로</a>
+
+</body>
+</html>
