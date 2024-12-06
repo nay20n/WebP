@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio</title>
+    <script>
+        function showImage(e){
+            let img = new Array();
+            img.src = e.value;
+ 
+            let parent = document.getElementsByName("parent");  
+            parent.appendChild(img);
+
+        }
+        
+    </script>
+</head>
+<body>
+    <h3>라디어 버튼을 클릭하면 이미지를 출력합니다.</h3>
+    <hr>
+    <form id="parent">
+        <input type="radio" name="fruit" value="meadia/banana.png" onclick="showImage(this)">바나나
+        <input type="radio" name="fruit" value="meadia/mango.png" onclick="showImage(this)" >망고
+        <input type="radio" name="fruit" value="media/apple.png" onclick="showImage(this)">사과
+
+    </form>
+</body>
+</html>
